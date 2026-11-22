@@ -25,6 +25,18 @@
       "expo-secure-store",
       "expo-font",
       "expo-asset"
-    ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "0a083524-747e-4bba-9e91-1aeaf3f8202e"
+      }
+    },
+    "owner": "mayukhdutta1992",
+    "runtimeVersion": {
+      "policy": "sdkVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/0a083524-747e-4bba-9e91-1aeaf3f8202e"
+    }
   }
 }

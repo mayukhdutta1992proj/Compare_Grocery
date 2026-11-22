@@ -43,8 +43,30 @@ npx expo start
 A QR code appears in the terminal. Open the iPhone **Camera**, point it at the QR code, and tap the banner to open the app in Expo Go.
 
 - If the phone can't connect (different network, office Wi-Fi, etc.) use `npx expo start --tunnel`.
-- The PC has to keep running `npx expo start` while you use the app this way.
-- To install the app permanently on the iPhone without the PC, you need an Apple Developer account (US$99/yr), then `npx eas-cli build --platform ios`.
+- The PC has to keep running `npx expo start` while you use the app this way. To use it with the PC off, use the hosted version below.
+
+## Use it without the PC (free Expo hosting)
+
+The app is published to Expo's free hosting (EAS Update): project `@mayukhdutta1992/grocery-compare`, channel `main`. Expo Go downloads it from Expo, so the PC can be off.
+
+**Open it:** sign in to Expo Go as `mayukhdutta1992`, then type this into Safari's address bar and tap **Open**:
+
+```
+exp://u.expo.dev/0a083524-747e-4bba-9e91-1aeaf3f8202e?runtime-version=exposdk%3A58.0.0&channel-name=main
+```
+
+The link always loads the newest published version. Expo Go remembers it under **Recently opened**.
+
+**Publish a new version** after changing the code (run in PowerShell; it fails from Git Bash):
+
+```powershell
+npx.cmd eas-cli@27.11.0 update --channel main --environment production --platform ios --non-interactive --message "what changed"
+```
+
+Notes:
+- `runtimeVersion` is `{ "policy": "sdkVersion" }` in `app.json`. Expo Go only loads updates whose runtime matches its SDK (`exposdk:58.0.0`). After upgrading the Expo SDK, publish again and update `runtime-version` in the link.
+- The free plan allows 1,000 monthly users.
+- Installing the app as a normal iPhone app (its own icon, no Expo Go) still needs an Apple Developer account (US$99/yr).
 
 ## Limitations
 
